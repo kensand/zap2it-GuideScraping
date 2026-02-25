@@ -39,11 +39,11 @@ class Zap2ItGuideScrape():
     def get_config_value(self, section, key, fallback=None):
         # Environment variable name: ZAP2IT_SECTION_KEY
         env_var = f"ZAP2IT_{section.upper()}_{key.upper()}"
-        print(f"Checking for environment variable: {env_var}")
+        #print(f"Checking for environment variable: {env_var}")
         if env_var in os.environ:
-            print(f"Using environment variable {env_var} for {section}.{key}")
+            #print(f"Using environment variable {env_var} for {section}.{key}")
             return os.environ[env_var]
-        print(f"Using config.ini value for {section}.{key}")
+        #print(f"Using config.ini value for {section}.{key}")
         return self.config.get(section, key, fallback=fallback)
 
     def BuildAuthRequest(self):
@@ -265,7 +265,7 @@ class Zap2ItGuideScrape():
             programEl.appendChild(self.guideXML.createElement("previously-shown"))
         for tag in event["tags"]:
             if tag == "CC":
-                subtitlesEl = self.guideXML.createElement("subtitle")
+                subtitlesEl = self.guideXML.createElement("subtitles")
                 subtitlesEl.setAttribute("type","teletext")
                 programEl.appendChild(subtitlesEl)
         if event["rating"] is not None:
