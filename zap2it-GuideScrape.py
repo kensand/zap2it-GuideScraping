@@ -205,7 +205,7 @@ class Zap2ItGuideScrape():
         lengthEl.setAttribute("units","minutes")
         programEl.appendChild(lengthEl)
 
-        if event["thumbnail"] is not None:
+        if event["thumbnail"]:
             thumbnailUrl = "https://zpmc.tmsimg.com/assets/" + event["thumbnail"] + ".jpg?w=165"
             thumbnailEl = self.CreateElementWithData("thumbnail", thumbnailUrl)
             programEl.appendChild(thumbnailEl)
