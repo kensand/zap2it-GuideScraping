@@ -205,11 +205,12 @@ class Zap2ItGuideScrape():
         lengthEl.setAttribute("units","minutes")
         programEl.appendChild(lengthEl)
 
-        if event["thumbnail"] is not None:
-            thumbnailEl = self.CreateElementWithData("thumbnail","http://zap2it.tmsimg.com/assets/" + event["thumbnail"] + ".jpg")
+        if event["thumbnail"]:
+            thumbnailUrl = "https://zpmc.tmsimg.com/assets/" + event["thumbnail"] + ".jpg?w=165"
+            thumbnailEl = self.CreateElementWithData("thumbnail", thumbnailUrl)
             programEl.appendChild(thumbnailEl)
             iconEl = self.guideXML.createElement("icon")
-            iconEl.setAttribute("src","http://zap2it.tmsimg.com/assets/" + event["thumbnail"] + ".jpg")
+            iconEl.setAttribute("src", thumbnailUrl)
             programEl.appendChild(iconEl)
 
 
